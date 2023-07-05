@@ -1,19 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- saved from url=(0049)file:///C:/Users/12227/Desktop/website/index.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   </head>
-  <body>
-    <div style="background-color: gray">自我介绍</div>
+  <body style="
+    max-width: 500px;
+    border: 5px outset cyan;
+    padding: 10px;
+">
+    <div style="
+        width: 200px;
+        height: 130px;
+        line-height: 130px;
+        background-color: grey;
+        font-size: 25px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        /* margin: auto; */
+    " "="">自我介绍</div>
+      <div style="font-size:20px">
+        大家好，我是一个刚上大学的普通大学生。喜欢<del>唱，跳，rap，篮球</del> 打游戏，看书，听歌，<del>摆烂</del>
+    
+    </div>
+  <p>我的b站<a href="https://space.bilibili.com/281263054?spm_id_from=333.337.0.0" tital="Morpheus的主页" target="_blank">主页</a></p>
+  <button onclick="like()" id="like-button">点赞</button>
 
-    <img src="zaza.jpg" width="42" height="42" == $0
+  <p id="count">0</p>
+  
+  <script>
+    let count = localStorage.getItem("count") || 0;
+  
+    function like() {
+      // 检查 cookie 中是否存在 "liked" 标记
+      if (document.cookie.indexOf("liked") === -1) {
+        count++;
+        localStorage.setItem("count", count);
+        document.getElementById("count").innerHTML = count;
+        // 设置一个名为 "liked" 的 cookie，有效期为一天
+        document.cookie = "liked=true; max-age=" + (60 * 60 * 24);
+        // 禁用点赞按钮
+        document.getElementById("like-button").disabled = true;
+      }
+    }
+  
+    document.getElementById("count").innerHTML = count;
+  
+    // 如果用户已经点过赞，禁用点赞按钮
+    if (document.cookie.indexOf("liked") !== -1) {
+      document.getElementById("like-button").disabled = true;
+    }
+  </script>
 
-    <p>morpheus,伟大的睡神</p>
-    <div style ="color: blue;">测试 01</di>
-     <input class ="measurement"
-      type="button"
-     value="测试02"
-</html>
+</body></html>
